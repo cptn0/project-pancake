@@ -16,7 +16,7 @@ public class BallBouncer : MonoBehaviour {
         rb.velocity = initialVelocity;
     }
 
-    private void Update() {
+    private void FixedUpdate() {
         lastFrameVelocity = rb.velocity;
     }
 
@@ -30,7 +30,7 @@ public class BallBouncer : MonoBehaviour {
         var speed = lastFrameVelocity.magnitude;
         var direction = Vector3.Reflect(lastFrameVelocity.normalized, collisionNormal);
 
-        Debug.Log("Out Direction: " + direction);
+        //Debug.Log("Out Direction: " + direction);
         rb.velocity = direction * Mathf.Max(speed, minVelocity);
     }
 }
